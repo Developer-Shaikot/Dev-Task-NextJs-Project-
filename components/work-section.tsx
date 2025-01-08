@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
 import { motion, useScroll, useTransform } from "framer-motion"
@@ -50,14 +50,8 @@ export function WorkSection() {
     offset: ["start start", "end end"]
   })
 
-  // Calculate the exact scroll amount needed to show all cards including ViewMoreCard
-  const totalCards = projects.length + 1 // +1 for ViewMoreCard
-  const cardWidth = 600 // Increased card width
-  const gapWidth = 40 // Increased gap between cards
-  const totalWidth = (totalCards * cardWidth) + ((totalCards - 1) * gapWidth)
-  const visibleWidth = 1440 - 300 - 96 // Max container width minus title column and gaps
-
-  const scrollPercentage = (totalWidth - visibleWidth) / (visibleWidth * 0.5)
+  const totalWidth = ((projects.length + 1) * 600) + (projects.length * 40)
+  const visibleWidth = 1044 // 1440 - 300 - 96
 
   const scrollX = useTransform(
     scrollYProgress,
@@ -113,28 +107,17 @@ export function WorkSection() {
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-25%" }}
-                  transition={{ 
-                    duration: 0.5,
-                    delay: index * 0.2
-                  }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
                   className="w-[600px] flex-shrink-0"
                 >
-                  <ProjectCard
-                    title={project.title}
-                    image={project.image}
-                    tags={project.tags}
-                    isLatest={project.isLatest}
-                  />
+                  <ProjectCard {...project} />
                 </motion.div>
               ))}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-25%" }}
-                transition={{ 
-                  duration: 0.5,
-                  delay: projects.length * 0.2
-                }}
+                transition={{ duration: 0.5, delay: projects.length * 0.2 }}
                 className="w-[600px] flex-shrink-0"
               >
                 <ViewMoreCard />

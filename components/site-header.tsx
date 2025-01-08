@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Equal } from "lucide-react";
 import { useState, useEffect } from "react";
 import { NavigationModal } from "./navigation-modal";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const headerVariants = {
   visible: { 
@@ -124,7 +124,6 @@ const polygonVariants = {
 
 export function SiteHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -133,17 +132,11 @@ export function SiteHeader() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      
-      if (!isHeaderHovered) {
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          // Scrolling down & past threshold
-          setIsHeaderVisible(false)
-        } else {
-          // Scrolling up or at top
-          setIsHeaderVisible(true)
-        }
+      if (!isHeaderHovered && currentScrollY > 100) {
+        setIsHeaderVisible(currentScrollY <= lastScrollY)
+      } else {
+        setIsHeaderVisible(true)
       }
-      
       setLastScrollY(currentScrollY)
     }
 
@@ -151,20 +144,11 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY, isHeaderHovered])
 
-  const handleHoverStart = () => {
-    setIsHovered(true)
-    setIsAnimating(true)
-  }
-
-  const handleHoverEnd = () => {
-    setIsHovered(false)
-  }
-
+  const handleHoverStart = () => setIsAnimating(true)
+  const handleHoverEnd = () => {} // Animation will complete via handleAnimationComplete
   const handleAnimationComplete = (definition: string) => {
-    if (definition === "final") {
-      setIsAnimating(false)
-    }
-  }         
+    if (definition === "final") setIsAnimating(false)
+  }
 
   return (
     <>
