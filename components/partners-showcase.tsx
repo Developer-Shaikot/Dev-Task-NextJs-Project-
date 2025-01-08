@@ -6,43 +6,43 @@ import { useEffect } from "react"
 
 const partners = [
   {
-    name: "Cartier",
-    logo: "/assets/partner/costa.png?height=48width"
+    name: "BMW",
+    logo: "/assets/partnerShowcase/BMW.svg.png"
   },
   {
-    name: "Omega",
-    logo: "/assets/partner/costa.png?height=48width"
+    name: "Mercedes-Benz",
+    logo: "/assets/partnerShowcase/mercedes-benz-car-logo-png-brand-image-1.png"
   },
   {
-    name: "Rolex",
-    logo: "/assets/partner/costa.png?height=48width"
+    name: "Audi",
+    logo: "/assets/partnerShowcase/png-transparent-audi-logo-audi-a3-car-emblem-logo-audi-car-logo-brand-text-candle-automobile-repair-shop-thumbnail.png"
   },
   {
-    name: "Patek Philippe",
-    logo: "/assets/partner/costa.png?height=48width"
+    name: "Mini",
+    logo: "/assets/partnerShowcase/mini-car-logo-11530961967zss8y0reja.png"
   },
   {
-    name: "Audemars Piguet",
-    logo: "/assets/partner/costa.png?height=48width"
+    name: "Bentley",
+    logo: "/assets/partnerShowcase/png-clipart-bentley-wings-logo-icons-logos-emojis-car-logos-thumbnail.png"
   },
   {
-    name: "Tag Heuer",
-    logo: "/assets/partner/BMW.svg.png?height=48width"
+    name: "Nissan",
+    logo: "/assets/partnerShowcase/nissan-car-logo-png-brand-image-24.png"
   },
   {
-    name: "Breguet",
-    logo: "/assets/partner/BMW.svg.png?height=48width"
+    name: "Cars Brand 1",
+    logo: "/assets/partnerShowcase/png-clipart-cars-logo-brands-cars-logo-brands.png"
+  },
+  {
+    name: "Cars Brand 2",
+    logo: "/assets/partnerShowcase/png-clipart-cars-logo-brands-cars-logo-brands-thumbnail.png"
+  },
+  {
+    name: "Indian Cars",
+    logo: "/assets/partnerShowcase/384-3841662_indian-car-company-logos-hd-png-download.png"
   },
   {
     name: "Longines",
-    logo: "/assets/partner/BMW.svg.png?height=48width"
-  },
-  {
-    name: "Tissot",
-    logo: "/assets/partner/BMW.svg.png?height=48width"
-  },
-  {
-    name: "Zenith",
     logo: "/assets/partner/BMW.svg.png?height=48width"
   }
 ]

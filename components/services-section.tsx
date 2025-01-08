@@ -10,40 +10,28 @@ const services = [
   {
     title: "E-commerce",
     caseName: "Shopify Plus Store",
-    caseImage: "/assets/services/01_Alveena_Casa_London_Web_Design_New-250x250.jpg"
+    caseImage: "/assets/services/01_Alveena_Casa_London_Web_Design_New-250x250.jpg",
+    href: "#e-commerce"
   },
   {
     title: "Website Design",
     caseName: "Romans & Partners",
-    caseImage: "/assets/services/01_Estate-Agency-Web-Design-London-250x250.jpg"
+    caseImage: "/assets/services/01_Estate-Agency-Web-Design-London-250x250.jpg",
+    href: "#website-design"
   },
   {
     title: "Digital Products",
     caseName: "Tech Platform",
-    caseImage: "/assets/services/Fudli-Restaurant-Food-Order-System-250x250.jpg"
+    caseImage: "/assets/services/Fudli-Restaurant-Food-Order-System-250x250.jpg",
+    href: "#digital-products"
   },
   {
     title: "Brand Identities",
     caseName: "Alveena Casa",
-    caseImage: "/assets/services/learning_featured-image-250x250.jpeg"
+    caseImage: "/assets/services/learning_featured-image-250x250.jpeg",
+    href: "#brand-identities"
   }
 ]
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
-}
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
-}
 
 export function ServicesSection() {
   const [hoveredService, setHoveredService] = useState<string | null>(null)
@@ -76,32 +64,28 @@ export function ServicesSection() {
           Our team of experts can help you with...
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="mb-16 space-y-16"
-        >
+        <div className="mb-16 space-y-16">
           {services.map((service, index) => (
             <motion.div
-              key={index}
-              variants={item}
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative"
+              onMouseEnter={() => setHoveredService(service.title)}
+              onMouseLeave={() => setHoveredService(null)}
             >
-              <div className="flex items-center justify-between gap-8">
+              <Link 
+                href={service.href}
+                className="flex items-center justify-between gap-8 py-4 group-hover:text-neutral-400 transition-colors"
+              >
                 <div className="flex-1">
-                  <Link 
-                    href="#" 
-                    className="flex items-center gap-2 py-1 text-4xl font-bold transition-colors hover:text-neutral-400 md:text-6xl"
-                    onMouseEnter={() => setHoveredService(service.title)}
-                    onMouseLeave={() => setHoveredService(null)}
-                  >
+                  <span className="inline-block text-4xl font-bold md:text-6xl transition-colors">
                     {service.title}
-                   
-                  </Link>
+                  </span>
                 </div>
-                <AnimatePresence>
+                <AnimatePresence mode="wait">
                   {hoveredService === service.title && (
                     <motion.div
                       initial={{ opacity: 0, x: 20 }}
@@ -114,60 +98,63 @@ export function ServicesSection() {
                         <div className="text-sm text-neutral-400">Latest Case Study</div>
                         <div className="text-2xl font-medium">{service.caseName}</div>
                       </div>
-                      <div className="relative h-16 w-16 overflow-hidden rounded-full">
+                      <div className="relative h-16 w-16 overflow-hidden rounded-full bg-neutral-800">
                         <Image
                           src={service.caseImage}
                           alt={`${service.caseName} thumbnail`}
                           fill
+                          sizes="64px"
                           className="object-cover"
+                          priority
                         />
                       </div>
                       <ArrowRight className="h-6 w-6" />
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
-           
+              </Link>
             </motion.div>
           ))}
-        </motion.div>
-           <div className="h-px w-full bg-neutral-800 mt-12" />
-           <motion.div 
-            className="mt-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex justify-between items-start gap-24">
-              <div className="flex-1">
-                <h2 className="text-5xl font-bold md:text-6xl lg:text-7xl mb-12">
-                  <span className="bg-gradient-to-r from-[#545cff] to-[#8d95ff] inline-block text-transparent bg-clip-text whitespace-nowrap leading-relaxed">
-                    Creative Agency
-                  </span>
-                </h2>
-                <div className="max-w-xl mt-8">
-                  <p className="text-xl text-muted-foreground">
-                    We&apos;re an award-winning creative agency based in London, focused on E-Commerce, Web Design London, Digital Products, Branding and SEO.
-                  </p>
-                </div>
+        </div>
+
+        <div className="h-px w-full bg-neutral-800 mt-12" />
+        
+        <motion.div 
+          className="mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex justify-between items-start gap-24">
+            <div className="flex-1">
+              <h2 className="text-5xl font-bold md:text-6xl lg:text-7xl mb-12">
+                <span className="bg-gradient-to-r from-[#545cff] to-[#8d95ff] inline-block text-transparent bg-clip-text whitespace-nowrap leading-relaxed">
+                  Creative Agency
+                </span>
+              </h2>
+              <div className="max-w-xl mt-8">
+                <p className="text-xl text-muted-foreground">
+                  We&apos;re an award-winning creative agency based in London, focused on E-Commerce, Web Design London, Digital Products, Branding and SEO.
+                </p>
               </div>
-              <motion.div 
-                className="flex gap-4 mt-44"
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <div className="border border-[#545cff] rounded-full px-10 py-6 text-white hover:bg-[#545cff]/10 transition-colors">
-                  <span className="text-2xl font-medium whitespace-nowrap">300+ Projects</span>
-                </div>
-                <div className="border border-[#545cff] rounded-full px-10 py-6 text-white hover:bg-[#545cff]/10 transition-colors">
-                  <span className="text-2xl font-medium whitespace-nowrap">15 Awards</span>
-                </div>
-              </motion.div>
             </div>
-          </motion.div>
+            <motion.div 
+              className="flex gap-4 mt-44"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="border border-[#545cff] rounded-full px-10 py-6 text-white hover:bg-[#545cff]/10 transition-colors">
+                <span className="text-2xl font-medium whitespace-nowrap">300+ Projects</span>
+              </div>
+              <div className="border border-[#545cff] rounded-full px-10 py-6 text-white hover:bg-[#545cff]/10 transition-colors">
+                <span className="text-2xl font-medium whitespace-nowrap">15 Awards</span>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
