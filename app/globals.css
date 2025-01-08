@@ -1,0 +1,189 @@
+@import '../styles/animations.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slide-up-sequence {
+  0%, 28% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  33%, 61% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  66%, 94% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up-sequence-2 {
+  0%, 28% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  33%, 61% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  66%, 94% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up-sequence-3 {
+  0%, 28% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  33%, 61% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  66%, 94% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.stats-number-1 {
+  animation: slide-up-sequence 9s ease-in-out infinite;
+}
+
+.stats-number-2 {
+  animation: slide-up-sequence-2 9s ease-in-out infinite;
+}
+
+.stats-number-3 {
+  animation: slide-up-sequence-3 9s ease-in-out infinite;
+}
+
+.stats-label-1 {
+  animation: slide-up-sequence 9s ease-in-out infinite;
+}
+
+.stats-label-2 {
+  animation: slide-up-sequence-2 9s ease-in-out infinite;
+}
+
+.stats-label-3 {
+  animation: slide-up-sequence-3 9s ease-in-out infinite;
+}
+
+@keyframes gradient-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #545cff, #1f2246, #545cff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-wave 8s ease infinite;
+}
+
+:root {
+  --gradient-start: #000000;
+  --gradient-end: #3843D0;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #abb8c3;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b959e;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #abb8c3 #f1f1f1;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improved button hover effects */
+.btn-hover {
+  transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Improved gradient transitions */
+.gradient-bar {
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Enhanced backdrop blur */
+.glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Improved card hover effects */
+.card {
+  transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.card:hover {
+  transform: scale(0.98);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+} 
