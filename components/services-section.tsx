@@ -10,19 +10,19 @@ const services = [
   {
     title: "E-commerce",
     caseName: "Shopify Plus Store",
-    caseImage: "/assets/services/01_Alveena_Casa_London_Web_Design_New-250x250.jpg",
+    caseImage: "/assets/services/01_alveena_casa_london_web_design_new-250x250.jpg",
     href: "#e-commerce"
   },
   {
     title: "Website Design",
     caseName: "Romans & Partners",
-    caseImage: "/assets/services/01_Estate-Agency-Web-Design-London-250x250.jpg",
+    caseImage: "/assets/services/01_estate-agency-web-design-london-250x250.jpg",
     href: "#website-design"
   },
   {
     title: "Digital Products",
     caseName: "Tech Platform",
-    caseImage: "/assets/services/Fudli-Restaurant-Food-Order-System-250x250.jpg",
+    caseImage: "/assets/services/fudli-restaurant-food-order-system-250x250.jpg",
     href: "#digital-products"
   },
   {
