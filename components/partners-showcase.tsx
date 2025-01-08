@@ -43,7 +43,7 @@ const partners = [
   },
   {
     name: "Longines",
-    logo: "/assets/partner/BMW.svg.png?height=48width"
+    logo: "/assets/partner/BMW.svg.png"
   }
 ]
 

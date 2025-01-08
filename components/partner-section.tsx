@@ -9,9 +9,9 @@ const stats = [
 ]
 
 const brands = [
-  { name: "Brand 1", logo: "/assets/partner/BBC-Logo-07.png?height=48width" },
-  { name: "Brand 2", logo: "/assets/partner/BMW.svg.png?height=48width" },
-  { name: "Brand 3", logo: "/assets/partner/costa.png?height=48width" }
+  { name: "Brand 1", logo: "/assets/partner/BBC-Logo-07.png" },
+  { name: "Brand 2", logo: "/assets/partner/BMW.svg.png" },
+  { name: "Brand 3", logo: "/assets/partner/costa.png" }
 ]
 
 export function PartnerSection() {
