@@ -8,10 +8,9 @@ interface ProjectCardProps {
   image: string
   tags: string[]
   isLatest?: boolean
-  className?: string
 }
 
-export function ProjectCard({ title, image, tags, isLatest, className }: ProjectCardProps) {
+export function ProjectCard({ title, image, tags, isLatest }: ProjectCardProps) {
   return (
     <motion.div 
       className="group relative flex-shrink-0 w-[600px]"

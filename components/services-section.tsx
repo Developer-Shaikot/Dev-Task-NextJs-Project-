@@ -65,7 +65,7 @@ export function ServicesSection() {
           backgroundImage: 'radial-gradient(circle at 75% 140%, #545cff 0, transparent 35%)'
         }}
       />
-      <div className="container w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-white">
+      <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ export function ServicesSection() {
                 </h2>
                 <div className="max-w-xl mt-8">
                   <p className="text-xl text-muted-foreground">
-                    We're an award-winning creative agency based in London, focused on E-Commerce, Web Design London, Digital Products, Branding and SEO.
+                    We&apos;re an award-winning creative agency based in London, focused on E-Commerce, Web Design London, Digital Products, Branding and SEO.
                   </p>
                 </div>
               </div>

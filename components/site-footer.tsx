@@ -14,7 +14,7 @@ const socialLinks = [
 export function SiteFooter() {
   return (
   <footer className="bg-white text-black py-16 md:py-24 border-t">
-  <div className="container mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-10">
+  <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
     <div className="grid gap-12 lg:grid-cols-2 pb-8">
       {/* Left Section */}
       <motion.div

@@ -67,23 +67,22 @@ export function WorkSection() {
 
   return (
     <section ref={sectionRef} className="relative w-full min-h-[400vh]">
-      <div className="w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 sticky top-[106px] pt-16 ">
+      <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 sticky top-[106px] pt-16">
         <div className="flex flex-row gap-16 lg:gap-24">
           <motion.div 
-            className="flex flex-col items-start gap-6 w-[300px] flex-shrink-0"
+            className="flex flex-col items-start gap-8 w-[300px] flex-shrink-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">Work</h2>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border text-sm font-medium">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border text-sm font-medium">
                 {projects.length}
               </div>
             </div>
             <p className="max-w-md text-lg lg:text-xl text-muted-foreground font-light">
-              
               A selection of our crafted work, built from scratch by our talented in-house team.
             </p>
             <div className="pt-44">
@@ -96,7 +95,6 @@ export function WorkSection() {
                 </span>
                 <span className="absolute inset-0 flex items-center justify-center gap-2 transition-transform duration-300 translate-y-[150%] group-hover:translate-y-0">
                   Case Studies
-                  
                 </span>
               </Button>
             </div>
@@ -107,7 +105,7 @@ export function WorkSection() {
               ref={scrollContainerRef}
               {...events}
               style={{ x: scrollX }}
-              className="flex gap-10 pb-8 pl-0 pr-10"
+              className="flex gap-12 pb-8 pl-0 pr-12"
             >
               {projects.map((project, index) => (
                 <motion.div
@@ -126,7 +124,6 @@ export function WorkSection() {
                     image={project.image}
                     tags={project.tags}
                     isLatest={project.isLatest}
-                    className="first:ml-0"
                   />
                 </motion.div>
               ))}
@@ -146,7 +143,6 @@ export function WorkSection() {
           </div>
         </div>
       </div>
-
     </section>
   )
 }

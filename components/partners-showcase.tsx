@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { useEffect } from "react"
 
 const partners = [
   {
@@ -46,29 +47,28 @@ const partners = [
   }
 ]
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
-}
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
-}
-
 const firstGroup = partners.slice(0, 5)
 const secondGroup = partners.slice(5)
 
 export function PartnersShowcase() {
+  useEffect(() => {
+    const scrollers = document.querySelectorAll(".scroller");
+
+    // If a user hasn't opted in for reduced motion, then we add the animation
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addAnimation();
+    }
+
+    function addAnimation() {
+      scrollers.forEach((scroller) => {
+        scroller.setAttribute("data-animated", "true");
+      });
+    }
+  }, []);
+
   return (
-    <section className="relative py-32">
-      <div className="container">
+    <section className="relative py-24 md:py-32">
+      <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
         <motion.h2 
           className="mx-auto max-w-5xl text-center text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 20 }}

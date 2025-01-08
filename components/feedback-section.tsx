@@ -26,7 +26,7 @@ const testimonials = [
   }
 ]
 
-function FeedbackCard({ testimonial, index }: { testimonial: typeof testimonials[0], index: number }) {
+function FeedbackCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   const cardRef = useRef<HTMLDivElement>(null)
   
   const { scrollYProgress } = useScroll({
@@ -84,7 +84,7 @@ export function FeedbackSection() {
       ref={containerRef}
       className="relative min-h-screen bg-gradient-to-br from-black via-[#1a1a3a] to-black py-16 md:py-24 text-white"
     >
-      <div className="container mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 xl:px-10 relative">
+      <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,11 +106,10 @@ export function FeedbackSection() {
             Keep scrolling
           </div>
 
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <FeedbackCard 
-              key={index} 
+              key={testimonial.author} 
               testimonial={testimonial} 
-              index={index} 
             />
           ))}
         </div>
