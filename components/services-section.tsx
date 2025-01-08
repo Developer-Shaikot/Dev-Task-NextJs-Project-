@@ -101,7 +101,7 @@ export function ServicesSection() {
                       <div className="relative h-16 w-16 overflow-hidden rounded-full bg-neutral-800">
                         <Image
                           src={service.caseImage}
-                          alt={`${service.caseName} thumbnail`}
+                          alt={service.title}
                           fill
                           sizes="64px"
                           className="object-cover"
